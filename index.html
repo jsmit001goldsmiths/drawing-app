@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <title>
+    My Drawing App
+  </title>
+  <head>
+    <script src="lib/p5.min.js"></script>
+
+    <script src="sketch.js"></script>
+
+    <!-- add extra scripts below -->
+    <script src="toolbox.js"></script>
+    <script src="colourPalette.js"></script>
+    <script src="helperFunctions.js"></script>
+
+    <script src="freehandTool.js"></script>
+    <script src="lineToTool.js"></script>
+    <script src="mirrorDrawTool.js"></script>
+    <script src="sprayCanTool.js"></script>
+    <script src="blurrTool.js"></script>
+    <script src="bucketTool.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+  	<div class="wrapper">
+      <div class="box header">My Drawing App 
+        <button id="clearButton"><img src="assets/broom.png" alt="A broom sweeping dust icon" width="10px"> Clear</button>
+        <button id="saveImageButton"><img src="assets/diskette.png" alt="A diskette icon" width="10px"> Save Image</button>
+        <button id="verticalFlipButton"><img src="assets/flip1.png" alt="A canvas flipping on the vertical axis icon" width="10px"> Flip</button>
+        <button id="horizontalFlipButton"><img src="assets/flip2.png" alt="A canvas flipping on the horizontal axis icon" width="10px"> Flip</button>
+        <button id="rotateClockwiseButton"><img src="assets/rotate-right.png" alt="A canvas being rotated clockwise icon" width="10px"> Rotate</button>
+        <button id="rotateCounterClockwiseButton"><img src="assets/rotate-left.png" alt="A canvas being rotated counter-clockwise icon" width="10px"> Rotate</button>
+      </div>
+      <div class="box" id="sidebar"></div>
+      <div id="content"></div>
+      <div class="box colourPalette"></div>
+      <div class="box options"></div>
+	</div>
+  </body>
+
+</html>
