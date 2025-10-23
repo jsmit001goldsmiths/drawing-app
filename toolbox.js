@@ -1,19 +1,19 @@
 //container object for storing the tools. Functions to add new tools and select a tool
 function Toolbox() {
 
-	var self = this;
+	let self = this;
 
 	this.tools = [];
 	this.selectedTool = null;
 
-	var toolbarItemClick = function() {
+	let toolbarItemClick = function() {
 		//remove any existing borders
-		var items = selectAll(".sideBarItem");
-		for (var i = 0; i < items.length; i++) {
+		let items = selectAll(".sideBarItem");
+		for (let i in items) {
 			items[i].style('border', '0');
 		}
 
-		var toolName = this.id().split("sideBarItem")[0];
+		let toolName = this.id().split("sideBarItem")[0];
 		self.selectTool(toolName);
 
 		//call loadPixels to make sure most recent changes are saved to pixel array
@@ -21,8 +21,8 @@ function Toolbox() {
 	};
 
 	//add a new tool icon to the html page
-	var addToolIcon = function(icon, name) {
-		var sideBarItem = createDiv("<img src='" + icon + "'></div>");
+	let addToolIcon = function(icon, name) {
+		let sideBarItem = createDiv("<img src='" + icon + "'></div>");
 		sideBarItem.class("sideBarItem");
 		sideBarItem.id(name + "sideBarItem");
 		sideBarItem.parent("sidebar");
@@ -49,7 +49,7 @@ function Toolbox() {
 	this.selectTool = function(toolName) {
 		//search through the tools for one that's name matches
 		//toolName
-		for (var i = 0; i < this.tools.length; i++) {
+		for(let i in this.tools) {
 			if (this.tools[i].name == toolName) {
 				//if the tool has an unselectTool method run it.
 				if (this.selectedTool != null && this.selectedTool.hasOwnProperty(

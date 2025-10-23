@@ -1,5 +1,5 @@
 /*
-Image Credits 
+Credits 
 *	1. https://www.flaticon.com/free-icons/horizontal
 *	Horizontal icon created by nawicon - Flaticon
 *
@@ -20,19 +20,21 @@ Image Credits
 *	
 *	7. https://www.flaticon.com/free-icons/paint
 *	Paint icons created by Freepik - Flaticon
+*
+*	8. https://stackoverflow.com/questions/48178383/p5-js-get-current-fill-stroke-color
+*	bucketTool.js, this.getFill = function() solution
 */
 
 // Global variables that will store the toolbox colour palette
 // and the helper functions.
-var toolbox = null;
-var colourP = null;
-var helpers = null;
+let toolbox = null;
+let colourP = null;
+let helpers = null;
 
 function setup() {
-
 	//create a canvas to fill the content div from index.html
-	canvasContainer = select('#content');
-	var c = createCanvas(canvasContainer.size().width, canvasContainer.size().height);
+	let canvasContainer = select('#content');
+	let c = createCanvas(canvasContainer.size().width, canvasContainer.size().height);
 	c.parent("content");
 
 	//create helper functions and the colour palette
@@ -46,11 +48,12 @@ function setup() {
 	toolbox.addTool(new FreehandTool());
 	toolbox.addTool(new LineToTool());
 	toolbox.addTool(new SprayCanTool());
-	toolbox.addTool(new MirrorDrawTool());
-	toolbox.addTool(new BlurTool());
+	toolbox.addTool(new MirrorDrawTool()); 
 	toolbox.addTool(new BucketTool());
+	toolbox.addTool(new BlurTool());
 	background(255);
 
+	angleMode(DEGREES);
 }
 
 function draw() {

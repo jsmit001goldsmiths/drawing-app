@@ -3,10 +3,10 @@ function LineToTool(){
 	this.name = "LineTo";
 	//position of mouse last time the drawing func was called
 	//initially set to -1
-	var startMouseX = -1;
-	var startMouseY = -1;
+	let startMouseX = -1;
+	let startMouseY = -1;
 	//if a line is being drawn or not. initially false
-	var drawing = false;
+	let drawing = false;
 
 	this.draw = function(){
 		//when the mouse is pressed 

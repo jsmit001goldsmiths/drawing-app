@@ -1,5 +1,4 @@
 function HelperFunctions() {
-
 	//p5.dom click click events. Notice that there is no this. at the
 	//start we don't need to do that here because the event will
 	//be added to the button and doesn't 'belong' to the object
@@ -24,6 +23,7 @@ function HelperFunctions() {
 	select("#horizontalFlipButton").mouseClicked(function() {
 		let currentCanvas = get(0,0,width, height);
 		push();
+		pixelDensity(1);
 		scale(1, -1);
 		image(currentCanvas, 0,-height);
 		push();
@@ -34,6 +34,7 @@ function HelperFunctions() {
 	select("#verticalFlipButton").mouseClicked(function() {
 		let currentCanvas = get(0,0,width, height);
 		push();
+		pixelDensity(1);
 		scale(-1, 1);
 		image(currentCanvas, -width,0);
 		push();
@@ -44,6 +45,7 @@ function HelperFunctions() {
 	select("#rotateClockwiseButton").mouseClicked(function() {
 		let currentCanvas = get(0,0,width, height);
 		push();
+		pixelDensity(1);
 		imageMode(CENTER);
 		translate(width/2, height/2);
 		rotate(180);
@@ -56,10 +58,14 @@ function HelperFunctions() {
 	select("#rotateCounterClockwiseButton").mouseClicked(function() {
 		let currentCanvas = get(0,0,width, height);
 		push();
+		pixelDensity(1);
 		imageMode(CENTER);
 		translate(width/2, height/2);
 		rotate(-180);
 		image(currentCanvas, 0,0);
 		pop();
 	})
+
+	
 }
+

@@ -14,7 +14,7 @@ html, body {
 
 .header {
 	grid-area: header;
-	font-family: Helvetica, sans-serif
+	font-family: Helvetica, sans-serif;
 }
 
 .footer{
@@ -73,5 +73,5 @@ html, body {
 }
 
 .header {
-  background-color: #999;
+	background-color: #999;
 }

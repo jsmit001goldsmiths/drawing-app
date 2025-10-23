@@ -7,8 +7,8 @@ function FreehandTool(){
 	//to the current mouse location. The following values store
 	//the locations from the last frame. They are -1 to start with because
 	//we haven't started drawing yet.
-	var previousMouseX = -1;
-	var previousMouseY = -1;
+	let previousMouseX = -1;
+	let previousMouseY = -1;
 
 	this.draw = function(){
 		//if the mouse is pressed
@@ -26,6 +26,7 @@ function FreehandTool(){
 				previousMouseX = mouseX;
 				previousMouseY = mouseY;
 			}
+
 		}
 		//if the user has released the mouse we want to set the previousMouse values 
 		//back to -1.
@@ -34,5 +35,6 @@ function FreehandTool(){
 			previousMouseX = -1;
 			previousMouseY = -1;
 		}
-	};
+	}
+
 }

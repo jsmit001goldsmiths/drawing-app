@@ -9,15 +9,15 @@ function ColourPalette() {
 	//make the start colour be black
 	this.selectedColour = "black";
 
-	var self = this;
+	let self = this;
 
-	var colourClick = function() {
+	let colourClick = function() {
 		//remove the old border
-		var current = select("#" + self.selectedColour + "Swatch");
+		let current = select("#" + self.selectedColour + "Swatch");
 		current.style("border", "0");
 
 		//get the new colour from the id of the clicked element
-		var c = this.id().split("Swatch")[0];
+		let c = this.id().split("Swatch")[0];
 
 		//set the selected colour and fill and stroke
 		self.selectedColour = c;
@@ -36,12 +36,12 @@ function ColourPalette() {
 		stroke(this.colours[0]);
 
 		//for each colour create a new div in the html for the colourSwatches
-		for (var i = 0; i < this.colours.length; i++) {
-			var colourID = this.colours[i] + "Swatch";
+		for (let i in this.colours) {
+			let colourID = this.colours[i] + "Swatch";
 
 			// Add the swatch to the palette and set its background
 			// colour to be the colour value.
-			var colourSwatch = createDiv();
+			let colourSwatch = createDiv();
 			colourSwatch.class("colourSwatches");
 
 			colourSwatch.id(colourID);

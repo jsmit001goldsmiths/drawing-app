@@ -10,16 +10,16 @@ function MirrorDrawTool() {
 	// `this` changes in the click handler. So storing it as a
 	// variable `self` now means we can still access it in the handler
 
-	var self = this;
+	let self = this;
 
 	//where was the mouse on the last time draw was called.
 	//set it to -1 to begin with
-	var previousMouseX = -1;
-	var previousMouseY = -1;
+	let previousMouseX = -1;
+	let previousMouseY = -1;
 
 	//mouse coordinates for the other side of the Line of symmetry
-	var previousOppositeMouseX = -1;
-	var previousOppositeMouseY = -1;
+	let previousOppositeMouseX = -1;
+	let previousOppositeMouseY = -1;
 
 	this.draw = function() {
 		//display the last save state of pixels
@@ -45,8 +45,8 @@ function MirrorDrawTool() {
 
 				//these are for the mirrored drawing the other side of the
 				//line of symmetry
-				var oX = this.calculateOpposite(mouseX, "x");
-				var oY = this.calculateOpposite(mouseY, "y");
+				let oX = this.calculateOpposite(mouseX, "x");
+				let oY = this.calculateOpposite(mouseY, "y");
 				line(previousOppositeMouseX, previousOppositeMouseY, oX, oY);
 				previousOppositeMouseX = oX;
 				previousOppositeMouseY = oY;
@@ -124,7 +124,7 @@ function MirrorDrawTool() {
 			"<button id='directionButton'>Make Horizontal</button>");
 		//click handler
 		select("#directionButton").mouseClicked(function() {
-			var button = select("#" + this.elt.id);
+			let button = select("#" + this.elt.id);
 			if (self.axis == "x") {
 				self.axis = "y";
 				self.lineOfSymmetry = height / 2;

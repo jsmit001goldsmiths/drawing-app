@@ -1,12 +1,11 @@
-- added and completed rotate clockwise
-- added and completed rotate counter-clockwise
+- increased pixel density to enable blur to work properly
+- fixed previously added helper functions to work with increased pixel density
 
-- added and completed horizontal flip
-- added and completed vertical flip
+- added seperate fill modes for BucketTool obj
+- finished flood fill mode for BucketTool obj
+- added an options button to BucketTool obj to switch between fill modes
 
-- added blurTool.js file
-- added and completed blur tool
+- added commments to bucketTool.js
 
-- added bucketTool.js file
-- added fill tool: does not work around corners, function is too complicated, no comments in file
-
+- changed all var instantiation to let instantiation
+- changed all recommended for loops to for-of loops
