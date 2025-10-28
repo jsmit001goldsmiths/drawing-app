@@ -5,6 +5,7 @@ function BucketTool() {
     this.icon = "assets/bucket.png";
     this.name = "bucket";
     this.mode = "flood";
+    this.toolTip = "test1"
 
     let self = this;
 
@@ -12,6 +13,7 @@ function BucketTool() {
         console.log(this.mode);
         //fill shouldnt run when mouse is off the canvas
         if(mouseIsPressed && mouseX > 0 && mouseY < 700 && mouseY > 100){
+            //FOR TESTING
             console.log("bucket start");
             loadPixels();
 
@@ -23,6 +25,7 @@ function BucketTool() {
             
             //update pixels so the filled pixels will be drawn
             updatePixels();
+            //FOR TESTING
             console.log("bucket finished");
         }
 
@@ -43,14 +46,13 @@ function BucketTool() {
                 ) {
                     set(i,j,fillCol);
                 } 
-               
             }
         }
-
     }
 
     //this type of fill doesnt ignore borders when flooding the canvas
     this.shapeFill = function() {
+        //FOR TESTING
         console.log("quack");
     }
 

@@ -20,22 +20,45 @@ function Toolbox() {
 		loadPixels();
 	};
 
+	//add a pink border to whichever tool icon is being hovred over
+	let toolbarItemHoverStart = function() {
+		select("#" + this.id()).style("border", "2px solid pink");
+
+		//TOOLBOXDIV DISPLAY
+	}
+
+	//remove the pink border once the icon is no longer hovered over
+	let toolbarItemHoverFinish = function() {
+		let toolName = this.id().split("sideBarItem")[0];
+		if(toolName != self.selectedTool.name) {
+			select("#" + this.id()).style("border", "0");
+		} else {
+			//if the current icon is the selected tool replace with blue border instead
+			select("#" + toolName + "sideBarItem").style("border", "2px solid blue");
+		}
+
+		//TOOLBOXDIV HIDE
+	}
+
 	//add a new tool icon to the html page
 	let addToolIcon = function(icon, name) {
 		let sideBarItem = createDiv("<img src='" + icon + "'></div>");
 		sideBarItem.class("sideBarItem");
 		sideBarItem.id(name + "sideBarItem");
 		sideBarItem.parent("sidebar");
+
 		sideBarItem.mouseClicked(toolbarItemClick);
+		sideBarItem.mouseOver(toolbarItemHoverStart);
+		sideBarItem.mouseOut(toolbarItemHoverFinish);
 
-
+		//TOOLBOXDIV CREATE
 	};
 
 	//add a tool to the tools array
 	this.addTool = function(tool) {
 		//check that the object tool has an icon and a name
-		if (!tool.hasOwnProperty("icon") || !tool.hasOwnProperty("name")) {
-			alert("make sure your tool has both a name and an icon");
+		if (!tool.hasOwnProperty("icon") || !tool.hasOwnProperty("name") || !tool.hasOwnProperty("toolTip")) {
+			alert("make sure your tool has both a name, a tool tip, and an icon");
 		}
 		this.tools.push(tool);
 		addToolIcon(tool.icon, tool.name);

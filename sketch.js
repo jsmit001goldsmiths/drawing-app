@@ -1,25 +1,25 @@
 /*
 Credits 
 *	1. https://www.flaticon.com/free-icons/horizontal
-*	Horizontal icon created by nawicon - Flaticon
+*	index.html, Horizontal and Vertical icon created by nawicon - Flaticon
 *
 *	2. https://www.flaticon.com/free-icons/photo-editing
-*	Photo editing icon created by nawicon - Flaticon
+*	index.html, Photo editing icon created by nawicon - Flaticon
 *
 *	3. https://www.flaticon.com/free-icons/rotate
-*	Rotate icons created by Afian Rochmah Afif - Flaticon
+*	index.html, Rotate icons created by Afian Rochmah Afif - Flaticon
 *
 *	4. https://www.flaticon.com/free-icons/save 
-*	Save icon created by Yogi Aprelliyanto - Flaticon
+*	index.html, Save icon created by Yogi Aprelliyanto - Flaticon
 *
 *	5. https://www.flaticon.com/free-icons/clear
-*	Clear icon created by LAFS - Flaticon
+*	index.html, Clear icon created by LAFS - Flaticon
 *
 *	6. https://www.flaticon.com/free-icons/blur
-*	Blur icons created by Cuputo - Flaticon
+*	BlurTool.js, blur icons created by Cuputo - Flaticon
 *	
 *	7. https://www.flaticon.com/free-icons/paint
-*	Paint icons created by Freepik - Flaticon
+*	bucketTool.js, Paint icons created by Freepik - Flaticon
 *
 *	8. https://stackoverflow.com/questions/48178383/p5-js-get-current-fill-stroke-color
 *	bucketTool.js, this.getFill = function() solution
@@ -66,4 +66,5 @@ function draw() {
 	} else {
 		alert("it doesn't look like your tool has a draw method!");
 	}
+
 }

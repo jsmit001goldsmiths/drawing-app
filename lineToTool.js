@@ -1,6 +1,7 @@
 function LineToTool(){
 	this.icon = "assets/lineTo.jpg";
 	this.name = "LineTo";
+	this.toolTip = "test1"
 	//position of mouse last time the drawing func was called
 	//initially set to -1
 	let startMouseX = -1;

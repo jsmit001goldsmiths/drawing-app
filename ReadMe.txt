@@ -1,11 +1,9 @@
-- increased pixel density to enable blur to work properly
-- fixed previously added helper functions to work with increased pixel density
+- Discovered and resolved issues with the blur tool by implementing continue operations in blurTool.js
 
-- added seperate fill modes for BucketTool obj
-- finished flood fill mode for BucketTool obj
-- added an options button to BucketTool obj to switch between fill modes
+- Updated credit documentation in sketch.js
 
-- added commments to bucketTool.js
+- Added and finished a pink border that appears aronud an icon when it is hovered over in toolbox.js
+- Added comments to code in toolbox.js
 
-- changed all var instantiation to let instantiation
-- changed all recommended for loops to for-of loops
+- Added this.toolTip = "test1" to all sidebar tool items
+- Added comments in toolbox.js as a guide for later in regards to a tooltip for tools that should appear when the icon for that tool is hovered over
