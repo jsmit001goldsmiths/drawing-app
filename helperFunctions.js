@@ -18,6 +18,8 @@ function HelperFunctions() {
 		saveCanvas('myDrawing.png');
 	});
 
+	//Own code—START
+
 	//event handler for the horizontal flip button. flips the canvas along
 	//the horizontal axis
 	select("#horizontalFlipButton").mouseClicked(function() {
@@ -69,3 +71,4 @@ function HelperFunctions() {
 	
 }
 
+//Own code—END

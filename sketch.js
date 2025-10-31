@@ -1,5 +1,5 @@
 /*
-Credits 
+Image Credits 
 *	1. https://www.flaticon.com/free-icons/horizontal
 *	index.html, Horizontal and Vertical icon created by nawicon - Flaticon
 *
@@ -21,7 +21,9 @@ Credits
 *	7. https://www.flaticon.com/free-icons/paint
 *	bucketTool.js, Paint icons created by Freepik - Flaticon
 *
-*	8. https://stackoverflow.com/questions/48178383/p5-js-get-current-fill-stroke-color
+Code Credits
+*
+*	1. https://stackoverflow.com/questions/48178383/p5-js-get-current-fill-stroke-color
 *	bucketTool.js, this.getFill = function() solution
 */
 
@@ -47,13 +49,17 @@ function setup() {
 	//add the tools to the toolbox.
 	toolbox.addTool(new FreehandTool());
 	toolbox.addTool(new LineToTool());
-	toolbox.addTool(new SprayCanTool());
 	toolbox.addTool(new MirrorDrawTool()); 
+
+	//Own code—START
 	toolbox.addTool(new BucketTool());
+	toolbox.addTool(new SprayCanTool());
 	toolbox.addTool(new BlurTool());
-	background(255);
 
 	angleMode(DEGREES);
+	//Own code—END
+
+	background(255);
 }
 
 function draw() {

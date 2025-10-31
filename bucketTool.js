@@ -1,3 +1,4 @@
+//Own code—START
 //UNDER CONSTRUCTION !!!!!
 
 function BucketTool() {
@@ -5,7 +6,7 @@ function BucketTool() {
     this.icon = "assets/bucket.png";
     this.name = "bucket";
     this.mode = "flood";
-    this.toolTip = "test1"
+    this.toolTip = "Bucket tool"
 
     let self = this;
 
@@ -89,3 +90,5 @@ function BucketTool() {
 	};
 
 }
+
+//Own code—END

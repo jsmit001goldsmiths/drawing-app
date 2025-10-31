@@ -1,7 +1,10 @@
+//Own code—START
+
 function SprayCanTool() {
     this.name = "sprayCanTool";
     this.icon = "assets/sprayCan.jpg";
-    this.toolTip = "test1"
+    this.toolTip = "Spray can";
+    
     this.points = 13;
     this.spread = 10;
 
@@ -17,3 +20,5 @@ function SprayCanTool() {
         }
     }
 }
+
+//Own code—END

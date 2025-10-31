@@ -20,11 +20,11 @@ function Toolbox() {
 		loadPixels();
 	};
 
-	//add a pink border to whichever tool icon is being hovred over
+	//Own code—START
+
+	//add a pink border to whichever tool icon is being hovered over
 	let toolbarItemHoverStart = function() {
 		select("#" + this.id()).style("border", "2px solid pink");
-
-		//TOOLBOXDIV DISPLAY
 	}
 
 	//remove the pink border once the icon is no longer hovered over
@@ -36,22 +36,22 @@ function Toolbox() {
 			//if the current icon is the selected tool replace with blue border instead
 			select("#" + toolName + "sideBarItem").style("border", "2px solid blue");
 		}
-
-		//TOOLBOXDIV HIDE
 	}
 
+	//Own code—END
+
 	//add a new tool icon to the html page
-	let addToolIcon = function(icon, name) {
-		let sideBarItem = createDiv("<img src='" + icon + "'></div>");
+	let addToolIcon = function(icon, name, toolTip) {
+		let sideBarItem = createDiv("<img src='" + icon + "'><span class='tooltip'>"+ toolTip+"</span></div>");
 		sideBarItem.class("sideBarItem");
 		sideBarItem.id(name + "sideBarItem");
 		sideBarItem.parent("sidebar");
 
 		sideBarItem.mouseClicked(toolbarItemClick);
+		//Own code—START
 		sideBarItem.mouseOver(toolbarItemHoverStart);
 		sideBarItem.mouseOut(toolbarItemHoverFinish);
-
-		//TOOLBOXDIV CREATE
+		//Own code—START
 	};
 
 	//add a tool to the tools array
@@ -61,7 +61,7 @@ function Toolbox() {
 			alert("make sure your tool has both a name, a tool tip, and an icon");
 		}
 		this.tools.push(tool);
-		addToolIcon(tool.icon, tool.name);
+		addToolIcon(tool.icon, tool.name, tool.toolTip);
 		//if no tool is selected (ie. none have been added so far)
 		//make this tool the selected one.
 		if (this.selectedTool == null) {
@@ -74,11 +74,14 @@ function Toolbox() {
 		//toolName
 		for(let i in this.tools) {
 			if (this.tools[i].name == toolName) {
-				//if the tool has an unselectTool method run it.
-				if (this.selectedTool != null && this.selectedTool.hasOwnProperty(
-						"unselectTool")) {
+				//if the tool has an unselectTool method run it
+				
+				//Own code—START
+				if (this.selectedTool?.hasOwnProperty("unselectTool")) {
 					this.selectedTool.unselectTool();
 				}
+				//Own code—END
+
 				//select the tool and highlight it on the toolbar
 				this.selectedTool = this.tools[i];
 				select("#" + toolName + "sideBarItem").style("border", "2px solid blue");
