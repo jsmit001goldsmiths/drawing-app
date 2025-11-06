@@ -1,5 +1,4 @@
 //Own code—START
-//UNDER CONSTRUCTION !!!!!
 
 function BucketTool() {
     //set an icon and a name for the object
@@ -11,11 +10,8 @@ function BucketTool() {
     let self = this;
 
     this.draw = function() {
-        console.log(this.mode);
         //fill shouldnt run when mouse is off the canvas
         if(mouseIsPressed && mouseX > 0 && mouseY < 700 && mouseY > 100){
-            //FOR TESTING
-            console.log("bucket start");
             loadPixels();
 
             if(this.mode === "flood") {
@@ -26,17 +22,18 @@ function BucketTool() {
             
             //update pixels so the filled pixels will be drawn
             updatePixels();
-            //FOR TESTING
-            console.log("bucket finished");
         }
 
     }
 
     //this type of fill covers the whole screen where the colour of the pixel matches the colour of the clicked pixel
     this.floodFill = function() {
+        //colour to flood
         let fillCol  = this.getFill();
+        //colour that should be flooded
         let baseCol = get(mouseX, mouseY);
 
+        //iterates through every pixel on the canvas and compares its colour to the base colour
         for(let i=0; i<width; i++){
             for(let j=0; j<height; j++){
                 let currentCol = get(i,j);
@@ -45,6 +42,7 @@ function BucketTool() {
                     && currentCol[2] == baseCol[2]
                     && currentCol[3] == baseCol[3]
                 ) {
+                    //where the current colour matches the base colour, set to fill colour
                     set(i,j,fillCol);
                 } 
             }
@@ -53,8 +51,81 @@ function BucketTool() {
 
     //this type of fill doesnt ignore borders when flooding the canvas
     this.shapeFill = function() {
-        //FOR TESTING
-        console.log("quack");
+
+            let toFill = [];
+            let isSame = true;
+            let startX = mouseX;
+            let startY = mouseY;
+            let i = startX;
+            let j = startY;
+            let originalPxl = get(i,j);
+
+            //searches through the pixels to the right of the current pixel
+            for(i; i<width; i++) {
+                let currentPxl = get(i,j);
+                //if the pixel is a different colour to the starting pixel it is a border and 
+                //it will stop searching to the left
+                if(originalPxl[0] != currentPxl[0]) {
+                    isSame = false;
+                }
+                //if the pixel is the same colour as the starting pixel, add it to the array
+                if(isSame) {
+                    toFill.push(i);
+                }
+            }
+            i = startX;
+            isSame = true;
+             //searches through the pixels to the left of the current pixel
+            for(i; i>0; i--) {
+                let currentPxl = get(i,j);
+                //if the pixel is a different colour to the starting pixel it is a border and 
+                //it will stop searching to the left
+                if(originalPxl[0] != currentPxl[0]) {
+                    isSame = false;
+                }
+                //if the pixel is the same colour as the starting pixel, add it to the array
+                if(isSame) {
+                    toFill.push(i);
+                }
+            }
+
+             //using the left-to-right array of pixels toFill[]
+            //search above and below each pixel in the array for pixels to fill
+            for(let p of toFill) {
+                isSame = true;
+                j = startY;
+                set(p, j, this.getFill());
+                //searches through the pixels to the above the current pixel
+                for(j; j<height; j++) {
+                    let currentPxl = get(p, j);
+                    //if the pixel is a different colour to the starting pixel it is a border and 
+                    //it will stop searching above
+                    if(originalPxl[0] != currentPxl[0]) {
+                        isSame = false;
+                    }
+                     //if the pixel is the same colour as the starting pixel, set it to the new colour
+                    if(isSame) {
+                        set(p, j, this.getFill());
+                    }
+                }
+
+                isSame = true;
+                j = startY;
+                set(p, j, this.getFill());
+                 //searches through the pixels to the below the current pixel
+                for(j; j>0; j--) {
+                    let currentPxl = get(p, j);
+                    //if the pixel is a different colour to the starting pixel it is a border and 
+                    //it will stop searching below
+                    if(originalPxl[0] != currentPxl[0]) {
+                        isSame = false;
+                    }
+                    //if the pixel is the same colour as the starting pixel, set it to the new colour
+                    if(isSame) {
+                        set(p, j, this.getFill());
+                    }
+                }
+            }
     }
 
     //get the current fill colour
@@ -85,7 +156,6 @@ function BucketTool() {
                 self.mode = "flood";
 				button.html('Shape Fill');
 			}
-            console.log(self.mode);
 		});
 	};
 
